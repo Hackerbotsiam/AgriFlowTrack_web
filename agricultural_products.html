@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriFlowTrack - Agricultural Products</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>AgriFlowTrack</h2>
+        <ul class="nav-links">
+            <li><a href="index.html">Dashboard</a></li>
+            <li class="active"><a href="agricultural_products.html">Agricultural Products</a></li>
+            <li><a href="agri_inputs.html">Agri Inputs</a></li>
+            <li><a href="perishable_products.html">Perishable Products</a></li>
+            <li><a href="post_harvest_monitor.html">Post-Harvest Monitor</a></li>
+            <li><a href="storage_conditions.html">Storage Conditions</a></li>
+            <li><a href="harvested_crops.html">Harvested Crops</a></li>
+            <li><a href="tracking_of_products.html">Tracking of Products</a></li>
+            <li><a href="market_data.html">Market Data</a></li>
+            <li><a href="inventory.html">Inventory</a></li>
+        </ul>
+        <div class="logout-container">
+            <button class="logout-btn">Logout</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="header-row">
+            <h1>Agricultural Products</h1>
+            <div class="header-actions">
+                <input type="text" id="search-input" class="search-input" placeholder="Search in table...">
+                <button class="btn btn-refresh" onclick="loadData()">Refresh</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">Create / Edit</h2>
+            <form id="data-form">
+                <input type="hidden" id="id" name="id">
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="product_name">Product Name</label>
+                        <input type="text" id="product_name" name="product_name" placeholder="e.g. Fresh Tomato (Local)"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <input type="text" id="category" name="category" placeholder="e.g. Fresh / Dry / Processed"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="growing_date">Growing Date</label>
+                        <input type="date" id="growing_date" name="growing_date">
+                    </div>
+                    <div class="form-group">
+                        <label for="harvest_date">Harvest Date</label>
+                        <input type="date" id="harvest_date" name="harvest_date">
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="storage_requirements">Storage Requirements</label>
+                        <input type="text" id="storage_requirements" name="storage_requirements"
+                            placeholder="e.g. 2-4°C, 85-95% RH">
+                    </div>
+                    <div class="form-group">
+                        <label for="shelf_life">Shelf Life (days)</label>
+                        <input type="text" id="shelf_life" name="shelf_life" placeholder="e.g. 14">
+                    </div>
+                </div>
+
+                <div class="form-grid form-grid-full">
+                    <div class="form-group">
+                        <label for="packaging_details">Packaging Details</label>
+                        <input type="text" id="packaging_details" name="packaging_details"
+                            placeholder="e.g. 1kg net bag; eco box; EAN-13">
+                    </div>
+                </div>
+
+                <div class="form-actions" style="margin-top: 20px;">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="reset" class="btn btn-secondary"
+                        onclick="document.getElementById('id').value=''">Reset</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="card">
+            <div class="table-responsive">
+                <table id="data-table-container">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Growing Date</th>
+                            <th>Harvest Date</th>
+                            <th>Storage Requirements</th>
+                            <th>Shelf Life</th>
+                            <th>Packaging Details</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-table">
+                        <!-- Data injected by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/agricultural_products.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriFlowTrack - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>AgriFlowTrack</h2>
+        <ul class="nav-links">
+            <li class="active"><a href="index.html">Dashboard</a></li>
+            <li><a href="agricultural_products.html">Agricultural Products</a></li>
+            <li><a href="agri_inputs.html">Agri Inputs</a></li>
+            <li><a href="perishable_products.html">Perishable Products</a></li>
+            <li><a href="post_harvest_monitor.html">Post-Harvest Monitor</a></li>
+            <li><a href="storage_conditions.html">Storage Conditions</a></li>
+            <li><a href="harvested_crops.html">Harvested Crops</a></li>
+            <li><a href="tracking_of_products.html">Tracking of Products</a></li>
+            <li><a href="market_data.html">Market Data</a></li>
+            <li><a href="inventory.html">Inventory</a></li>
+        </ul>
+        <div class="logout-container">
+            <button class="logout-btn">Logout</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="header-row">
+            <h1>Dashboard</h1>
+            <div class="header-actions">
+                <button class="btn btn-refresh" onclick="loadDashboardData()">Refresh</button>
+            </div>
+        </div>
+
+        <div class="summary-grid">
+            <div class="summary-card">
+                <h3 id="products-count">0</h3>
+                <p>Products</p>
+            </div>
+            <div class="summary-card">
+                <h3 id="agri-inputs-count">0</h3>
+                <p>Agri Inputs</p>
+            </div>
+            <div class="summary-card">
+                <h3 id="perishables-count">0</h3>
+                <p>Perishables</p>
+            </div>
+            <div class="summary-card">
+                <h3 id="post-harvest-count">0</h3>
+                <p>Post-Harvest</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">Latest Market Prices</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Market</th>
+                            <th>Product</th>
+                            <th>Price / Unit</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="market-data-table">
+                        <!-- Data injected by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>
